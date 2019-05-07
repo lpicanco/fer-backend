@@ -12,5 +12,7 @@ FROM tensorflow/serving:1.13.0
 LABEL maintainer="lpicanco@gmail.com"
 COPY --from=builder /exported_model /models/model/1
 
+COPY tf_serving_entrypoint.sh /usr/bin/tf_serving_entrypoint.sh
+
 ENTRYPOINT []
 CMD ["/usr/bin/tf_serving_entrypoint.sh"]
