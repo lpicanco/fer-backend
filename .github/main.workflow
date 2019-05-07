@@ -24,4 +24,7 @@ action "release" {
   needs = "push"
   args = "container:release web"
   secrets = ["HEROKU_API_KEY"]
+  env = {
+    HEROKU_APP = "fer-backend"
+  }
 }
