@@ -9,4 +9,8 @@ RUN pip3 install keras==2.2.4 && \
     python3 export_keras_model.py ${FER_MODEL} /exported_model 
 
 FROM tensorflow/serving:1.13.0
+LABEL maintainer="lpicanco@gmail.com"
 COPY --from=builder /exported_model /models/model/1
+
+ENTRYPOINT []
+CMD ["/usr/bin/tf_serving_entrypoint.sh"]
